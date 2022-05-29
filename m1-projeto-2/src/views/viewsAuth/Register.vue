@@ -43,6 +43,9 @@
                         />
                         <button class="submit-btn" type="submit">Registrar</button>
                     </Form>
+                    <div class="d-grid gap-2 d-flex justify-content-center">
+                            <Spinner :start="this.spin"/>
+                        </div>
                     <div class="d-flex justify-content-center align-items-center" id="divJaTemConta">
                         <button class="btn btn-outline-secondary btn-sm" @click="voltarLogin">Já possui uma conta? Entre aqui!</button>
                     </div>
@@ -56,20 +59,31 @@
 import { Form } from "vee-validate";
 import * as Yup from "yup";
 import TextInput from "../../components/TextInput.vue";
+import Spinner from "../../components/Spinner.vue";
 
 export default {
     name: "Register",
     components: {
         TextInput,
         Form,
+        Spinner
+    },
+
+    data() {
+        return {
+            spin: false
+        }
     },
 
     methods: {
         salvarDados(values) {
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
+            setTimeout(() => {
             this.$store.dispatch('autenticacaoModule/salvarDados', values)
             .then(() => {
                 this.$router.push('/login');
-            })
+            })}, 2000);
         },
 
         voltarLogin() {

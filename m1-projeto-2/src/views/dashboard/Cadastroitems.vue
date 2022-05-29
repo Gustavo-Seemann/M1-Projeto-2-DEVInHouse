@@ -59,6 +59,9 @@
                     <input type="text" class="form-control" id="DescItemCad" autocomplete="off" name="DescItemCad" v-model="item.descricao" required>
                 </div>
                 <button class="submit-btn" type="submit" @click="saveTask">Salvar</button>
+                <div class="d-grid gap-2 d-flex justify-content-center">
+                    <Spinner :start="this.spin"/>
+                </div>
             </form>
         </div>
     </div>
@@ -67,12 +70,19 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, email } from '@vuelidate/validators'
+import Spinner from "../../components/Spinner.vue"
 
 export default {
 name: "CadastroItems",
 
+components: {
+    Spinner,
+},
+
+
 data() {
     return {
+        spin: false,
         v$: useVuelidate(),
         item: {
             codigo: "",
@@ -141,7 +151,9 @@ data() {
                     Object.assign(itens[this.$route.params.index], this.item)
                     localStorage.setItem("itens", JSON.stringify(itens));
                     alert("Item editado com sucesso!")
-                    this.$router.push( { name: "INVENTARIO" });
+                    this.spin = !this.spin
+                    setTimeout(() => { this.spin = !this.spin}, 1900)
+                    setTimeout(() => {this.$router.push( { name: "INVENTARIO" })}, 2000);
                     return;
                 }
                 let itens = (localStorage.getItem("itens")) ? JSON.parse(localStorage.getItem("itens")) : [];
@@ -149,7 +161,9 @@ data() {
                 itens.push(this.item);
                 localStorage.setItem("itens", JSON.stringify(itens));
                     alert("Item criado com sucesso!")
-                this.$router.push( { name: "INVENTARIO" });
+                this.spin = !this.spin
+                setTimeout(() => { this.spin = !this.spin}, 1900)
+                setTimeout(() => {this.$router.push( { name: "INVENTARIO" })}, 2000);
             }
             else {
                 (() => {
