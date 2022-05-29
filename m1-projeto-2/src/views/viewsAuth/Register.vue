@@ -2,11 +2,11 @@
     <div class="container" id="containerLogin">
         <div class="row vh-100 vw-100">
             <div class="col-sm-7 d-flex justify-content-center align-items-center">
-                <img src="../../assets/Images/viewsAuthImagens/imagemRegister.svg" class="img-register" />
+                <img src="../../assets/images/viewsAuthImagens/imagemRegister.svg" class="img-register" />
             </div>
             <div class="col-sm-5 d-flex justify-content-center align-items-center">
                 <div class="col-8">
-                    <img src="../../assets/Images/viewsAuthImagens/devinhouse-logo.png" class="img-register-form" />
+                    <img src="../../assets/images/viewsAuthImagens/devinhouse-logo.png" class="img-register-form" />
                     <h2 class="text-center m-4 tittle-login">Criar Conta</h2>
                     <Form
                         @submit="salvarDados"
@@ -54,6 +54,7 @@
 
 <script>
 import { Form } from "vee-validate";
+import * as Yup from "yup";
 import TextInput from "../../components/TextInput.vue";
 
 export default {
@@ -61,6 +62,47 @@ export default {
     components: {
         TextInput,
         Form,
+    },
+
+    methods: {
+        salvarDados(values) {
+            this.$store.dispatch('autenticacaoModule/salvarDados', values)
+            .then(() => {
+                this.$router.push('/login');
+            })
+        },
+
+        voltarLogin() {
+            this.$router.push('/login');
+        }
+    },
+
+
+    setup() {
+
+        function onSubmit(values) {
+        }
+
+        function onInvalidSubmit() {
+            const submitBtn = document.querySelector(".submit-btn");
+            submitBtn.classList.add("invalid");
+            setTimeout(() => { submitBtn.classList.remove("invalid"); }, 1000);
+        }
+
+        const schema = Yup.object().shape({
+            nameRegister: Yup.string().required('Por favor insira seu nome.'),
+            emailRegister: Yup.string().email('Por favor insira um email valido!').required('Email é um campo obrigatorio.'),
+            passwordRegister: Yup.string().min(8, 'A senha deve ter 8 caracteres no minimo.').required('Você precisa inserir uma senha!'),
+            confirm_passwordRegister: Yup.string()
+            .required('Você precisa confirmar sua senha.')
+            .oneOf([Yup.ref("passwordRegister")], 'As senhas não coincidem'),
+            });
+
+        return {
+            onSubmit,
+            schema,
+            onInvalidSubmit,
+        };
     },
 }
 </script>
@@ -70,9 +112,8 @@ export default {
 .col-sm-5 {
     background-color: white;
 }
-
 .col-sm-7 {
-    background: rgba(0, 0, 0, 0.63) url('../../assets/Images/viewsAuthImagens/BackgroundRegister.jpg');
+    background: rgba(0, 0, 0, 0.63) url('../../assets/images/viewsAuthImagens/BackgroundRegister.jpg');
     background-size: cover;
     background-blend-mode: darken;
 }
@@ -102,4 +143,5 @@ form {
         width: 100%;
     }
 }
+
 </style>

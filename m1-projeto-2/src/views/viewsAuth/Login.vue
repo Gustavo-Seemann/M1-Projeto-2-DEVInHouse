@@ -3,7 +3,7 @@
         <div class="row vh-100 vw-100">
             <div class="col-sm-5 d-flex justify-content-center align-items-center" id="col-sm-5-login">
                 <div class="col-8">
-                    <img src="../../assets/Images/viewsAuthImagens/devinhouse-logo.png" class="img-login-form" />
+                    <img src="../../assets/images/viewsAuthImagens/devinhouse-logo.png" class="img-login-form" />
                     <h2 class="text-center m-5 tittle-login">Faça o login</h2>
                     <Form
                         @submit="Login"
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-sm-7 d-flex justify-content-center align-items-center" id="col-sm-7-login">
-                <img src="../../assets/Images/viewsAuthImagens/loginImagem.svg" class="img-login" />
+                <img src="../../assets/images/viewsAuthImagens/loginImagem.svg" class="img-login" />
             </div>
         </div>
     </div>
@@ -48,6 +48,7 @@
 
 <script>
 import { Form } from "vee-validate";
+import * as Yup from "yup";
 import TextInput from "../../components/TextInput.vue";
 
 export default {
@@ -55,6 +56,44 @@ export default {
     components: {
         TextInput,
         Form,
+    },
+    methods: {
+
+        Login(values) {
+            this.$store.dispatch('autenticacaoModule/Login', values)
+            .then(() => {
+                this.$router.push('/');
+            })
+        },
+
+        emConstrucao() {
+            alert("Função em construção!")
+        },
+        irRegistro() {
+            this.$router.push({ name:"register" });
+        }
+    },
+
+    setup() {
+        function onSubmit(values) {
+        }
+
+        function onInvalidSubmit() {
+            const submitBtn = document.querySelector(".submit-btn");
+            submitBtn.classList.add("invalid");
+            setTimeout(() => { submitBtn.classList.remove("invalid"); }, 1000);
+        }
+
+        const schema = Yup.object().shape({
+            email: Yup.string().email('Por favor insira um email valido!').required('Email é um campo obrigatorio.'),
+            password: Yup.string().min(8, 'A senha deve ter 8 caracteres no minimo.').required('Você precisa inserir uma senha!'),
+            });
+
+        return {
+            onSubmit,
+            schema,
+            onInvalidSubmit,
+        };
     },
 }
 </script>
@@ -78,7 +117,7 @@ export default {
 }
 
 #col-sm-7-login {
-    background: rgba(0, 0, 0, 0.63) url('../../assets/Images/viewsAuthImagens/BackgroundLogin.jpg');
+    background: rgba(0, 0, 0, 0.63) url('../../assets/images/viewsAuthImagens/BackgroundLogin.jpg');
     background-size: cover;
     background-blend-mode: darken;
 }
