@@ -3,7 +3,7 @@
         <div class="row vh-100 vw-100">
             <div class="col-sm-5 d-flex justify-content-center align-items-center" id="col-sm-5-login">
                 <div class="col-8">
-                    <img src="../../assets/images/viewsAuthImagens/devinhouse-logo.png" class="img-login-form" />
+                    <img src="../../assets/Images/viewsAuthImagens/devinhouse-logo.png" class="img-login-form" />
                     <h2 class="text-center m-5 tittle-login">Faça o login</h2>
                     <Form
                         @submit="Login"
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-sm-7 d-flex justify-content-center align-items-center" id="col-sm-7-login">
-                <img src="../../assets/images/viewsAuthImagens/loginImagem.svg" class="img-login" />
+                <img src="../../assets/Images/viewsAuthImagens/loginImagem.svg" class="img-login" />
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@ export default {
 }
 
 #col-sm-7-login {
-    background: rgba(0, 0, 0, 0.63) url('../../assets/images/viewsAuthImagens/BackgroundLogin.jpg');
+    background: rgba(0, 0, 0, 0.63) url('../../assets/Images/viewsAuthImagens/BackgroundLogin.jpg');
     background-size: cover;
     background-blend-mode: darken;
 }
