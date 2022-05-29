@@ -7,6 +7,7 @@ import inventarioModule from './modules/inventarioModule'
 
 
 export default createStore({
+  
   modules: {
     autenticacaoModule,
     pesquisaColabModule,
