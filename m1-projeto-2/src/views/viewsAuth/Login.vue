@@ -29,6 +29,9 @@
                         </div>
                         <button class="submit-btn" type="submit">Entrar</button>
                         <div class="d-grid gap-2 d-flex justify-content-center">
+                            <Spinner :start="this.spin"/>
+                        </div>
+                        <div class="d-grid gap-2 d-flex justify-content-center">
                             <button class="btn btn btn-secondary m-1 px-5" @click="emConstrucao" type="button">Google</button>
                         </div>
                         <hr>
@@ -50,20 +53,30 @@
 import { Form } from "vee-validate";
 import * as Yup from "yup";
 import TextInput from "../../components/TextInput.vue";
+import Spinner from "../../components/Spinner.vue"
 
 export default {
     name: "Login",
     components: {
         TextInput,
         Form,
+        Spinner
     },
+
+    data() {
+        return {
+            spin: false
+        }
+    },
+
     methods: {
 
         Login(values) {
-            this.$store.dispatch('autenticacaoModule/Login', values)
+            this.spin = !this.spin;
+            setTimeout(() => { this.$store.dispatch('autenticacaoModule/Login', values)
             .then(() => {
                 this.$router.push('/');
-            })
+            })}, 3000)
         },
 
         emConstrucao() {
