@@ -1,13 +1,82 @@
 <template>
-    <h1> Pagina de Registro <h2>
+    <div class="container" id="containerLogin">
+        <div class="row vh-100 vw-100">
+            <div class="col-sm-7 d-flex justify-content-center align-items-center">
+                <img src="" class="img-register" />
+            </div>
+            <div class="col-sm-5 d-flex justify-content-center align-items-center">
+                <div class="col-8">
+                    <img src="" class="img-register-form" />
+                    <h2 class="text-center m-4 tittle-login">Criar Conta</h2>
+                    <Form
+                        @submit="salvarDados"
+                        :validation-schema="schema"
+                        @invalid-submit="onInvalidSubmit"
+                    >
+                        <TextInput
+                            name="nameRegister"
+                            type="text"
+                            label="Nome"
+                            placeholder="Seu nome"
+                            success-message="Prazer em te conhecer!"
+                        />
+                        <TextInput
+                            name="emailRegister"
+                            type="email"
+                            label="E-mail"
+                            placeholder="Seu email"
+                            success-message="Não se preocupe não iremos lhe incomodar!"
+                        />
+                        <TextInput
+                            name="passwordRegister"
+                            type="password"
+                            label="Senha"
+                            placeholder="Sua senha"
+                            success-message="Boa e segura!"
+                        />
+                        <TextInput
+                            name="confirm_passwordRegister"
+                            type="password"
+                            label="Confirme a senha"
+                            placeholder="Confirme sua senha"
+                            success-message="As senhas estão iguais!"
+                        />
+                        <button class="submit-btn" type="submit">Registrar</button>
+                    </Form>
+                    <div class="d-flex justify-content-center align-items-center" id="divJaTemConta">
+                        <button class="btn btn-outline-secondary btn-sm" @click="voltarLogin">Já possui uma conta? Entre aqui!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-export default {
+import { Form } from "vee-validate";
+import TextInput from "../../components/TextInput.vue";
 
+export default {
+    name: "Register",
+    components: {
+        TextInput,
+        Form,
+    },
 }
 </script>
 
-<style>
+<style scoped>
+
+.col-sm-5 {
+    background-color: white;
+}
+
+.submit-btn {
+    background-color: rgb(0, 0, 0);
+}
+
+form {
+    padding-bottom: 30px
+}
 
 </style>
