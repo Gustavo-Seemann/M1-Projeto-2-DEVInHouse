@@ -4,6 +4,7 @@ import Register from '../views/viewsAuth/Register.vue'
 import Cadastroitems from '../views/dashboard/Cadastroitems.vue'
 import CadastroColab from '../views/dashboard/CadastroColab.vue'
 import Colaboradores from '../views/dashboard/Colaboradores.vue'
+import Inventario from '../views/dashboard/Inventario.vue'
 
 
 
@@ -32,6 +33,11 @@ const routes = [
     path: '/colaboradores-lista',
     name: 'COLABORADORES',
     component: Colaboradores
+  },
+  {
+    path: '/',
+    name: 'INVENTARIO',
+    component: Inventario
   },
 ]
 
