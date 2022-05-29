@@ -3,7 +3,7 @@
         <div class="row vh-100 vw-100">
             <div class="col-sm-5 d-flex justify-content-center align-items-center" id="col-sm-5-login">
                 <div class="col-8">
-                    <img src="" class="img-login-form" />
+                    <img src="../../assets/Images/viewsAuthImagens/devinhouse-logo.png" class="img-login-form" />
                     <h2 class="text-center m-5 tittle-login">Faça o login</h2>
                     <Form
                         @submit="Login"
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-sm-7 d-flex justify-content-center align-items-center" id="col-sm-7-login">
-                <img src="" class="img-login" />
+                <img src="../../assets/Images/viewsAuthImagens/loginImagem.svg" class="img-login" />
             </div>
         </div>
     </div>
@@ -61,6 +61,12 @@ export default {
 
 <style>
 
+.img-login-form {
+    max-width: 433px;
+    max-height: 104px;
+    margin: 5px;
+}
+
 #containerLogin{
     margin-right: 0;
     margin-left: 0px;
@@ -71,8 +77,20 @@ export default {
     background-color: white;
 }
 
+#col-sm-7-login {
+    background: rgba(0, 0, 0, 0.63) url('../../assets/Images/viewsAuthImagens/BackgroundLogin.jpg');
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
 .tittle-login {
     font-weight: bold;
+}
+
+.img-login {
+    width: 600px;
+    height: 600px;
+    margin: 10px;
 }
 
 * {

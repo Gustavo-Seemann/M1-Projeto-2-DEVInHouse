@@ -2,11 +2,11 @@
     <div class="container" id="containerLogin">
         <div class="row vh-100 vw-100">
             <div class="col-sm-7 d-flex justify-content-center align-items-center">
-                <img src="" class="img-register" />
+                <img src="../../assets/Images/viewsAuthImagens/imagemRegister.svg" class="img-register" />
             </div>
             <div class="col-sm-5 d-flex justify-content-center align-items-center">
                 <div class="col-8">
-                    <img src="" class="img-register-form" />
+                    <img src="../../assets/Images/viewsAuthImagens/devinhouse-logo.png" class="img-register-form" />
                     <h2 class="text-center m-4 tittle-login">Criar Conta</h2>
                     <Form
                         @submit="salvarDados"
@@ -69,6 +69,24 @@ export default {
 
 .col-sm-5 {
     background-color: white;
+}
+
+.col-sm-7 {
+    background: rgba(0, 0, 0, 0.63) url('../../assets/Images/viewsAuthImagens/BackgroundRegister.jpg');
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.img-register {
+    max-width: 600px;
+    max-height: 600px;
+    padding: 40px;
+}
+
+.img-register-form {
+    max-width: 433px;
+    max-height: 104px;
+    margin: 5px;
 }
 
 .submit-btn {
