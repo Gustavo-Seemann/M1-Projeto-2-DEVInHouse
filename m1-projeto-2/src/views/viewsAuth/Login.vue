@@ -177,4 +177,10 @@ form {
 .submit-btn:hover {
     transform: scale(1.1);
 }
+
+@media only screen and (max-width: 480px) {
+    .img-login, .img-login-form{
+        width: 100%;
+    }
+}
 </style>

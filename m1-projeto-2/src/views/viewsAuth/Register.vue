@@ -97,4 +97,9 @@ form {
     padding-bottom: 30px
 }
 
+@media only screen and (max-width: 480px) {
+    .img-register, .img-register-form{
+        width: 100%;
+    }
+}
 </style>
