@@ -5,7 +5,7 @@ import Cadastroitems from '../views/dashboard/Cadastroitems.vue'
 import CadastroColab from '../views/dashboard/CadastroColab.vue'
 import Colaboradores from '../views/dashboard/Colaboradores.vue'
 import Inventario from '../views/dashboard/Inventario.vue'
-import EmprestimoItems from '../views/dashboard/EmprestimoItems.vue'
+import EmprestimosItems from '../views/dashboard/EmprestimosItems.vue'
 
 
 const routes = [
@@ -42,7 +42,7 @@ const routes = [
   {
     path: '/emprestimoitem',
     name: 'EMPRESTIMO DE ITENS',
-    component: EmprestimoItems
+    component: EmprestimosItems
   },
 ]
 
