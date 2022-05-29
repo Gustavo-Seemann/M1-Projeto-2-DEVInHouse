@@ -72,11 +72,12 @@ export default {
     methods: {
 
         Login(values) {
-            this.spin = !this.spin;
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
             setTimeout(() => { this.$store.dispatch('autenticacaoModule/Login', values)
             .then(() => {
                 this.$router.push('/');
-            })}, 3000)
+            })}, 2000)
         },
 
         emConstrucao() {
