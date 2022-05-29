@@ -2,11 +2,11 @@
     <div class="container" id="containerLogin">
         <div class="row vh-100 vw-100">
             <div class="col-sm-7 d-flex justify-content-center align-items-center">
-                <img src="../../assets/images/viewsAuthImagens/imagemRegister.svg" class="img-register" />
+                <img src="../../assets/Images/viewsAuthImagens/imagemRegister.svg" class="img-register" />
             </div>
             <div class="col-sm-5 d-flex justify-content-center align-items-center">
                 <div class="col-8">
-                    <img src="../../assets/images/viewsAuthImagens/devinhouse-logo.png" class="img-register-form" />
+                    <img src="../../assets/Images/viewsAuthImagens/devinhouse-logo.png" class="img-register-form" />
                     <h2 class="text-center m-4 tittle-login">Criar Conta</h2>
                     <Form
                         @submit="salvarDados"
@@ -113,7 +113,7 @@ export default {
     background-color: white;
 }
 .col-sm-7 {
-    background: rgba(0, 0, 0, 0.63) url('../../assets/images/viewsAuthImagens/BackgroundRegister.jpg');
+    background: rgba(0, 0, 0, 0.63) url('../../assets/Images/viewsAuthImagens/BackgroundRegister.jpg');
     background-size: cover;
     background-blend-mode: darken;
 }

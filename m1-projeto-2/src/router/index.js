@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/viewsAuth/Login.vue'
 import Register from '../views/viewsAuth/Register.vue'
+import Cadastroitems from '../views/dashboard/Cadastroitems.vue'
 
 
 const routes = [
@@ -13,6 +14,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/cadastroitem',
+    name: 'CADASTRO DE ITENS',
+    component: Cadastroitems
   },
 ]
 
