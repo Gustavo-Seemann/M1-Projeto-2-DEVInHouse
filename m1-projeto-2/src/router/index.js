@@ -3,6 +3,7 @@ import Login from '../views/viewsAuth/Login.vue'
 import Register from '../views/viewsAuth/Register.vue'
 import Cadastroitems from '../views/dashboard/Cadastroitems.vue'
 import CadastroColab from '../views/dashboard/CadastroColab.vue'
+import Colaboradores from '../views/dashboard/Colaboradores.vue'
 
 
 
@@ -26,6 +27,11 @@ const routes = [
     path: '/cadastrocolab',
     name: 'CADASTRO DE COLABORADORES',
     component: CadastroColab
+  },
+  {
+    path: '/colaboradores-lista',
+    name: 'COLABORADORES',
+    component: Colaboradores
   },
 ]
 
