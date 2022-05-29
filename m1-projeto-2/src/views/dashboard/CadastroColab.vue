@@ -92,6 +92,9 @@
                     <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" v-model="colaborador.complemento" required>
                 </div>
                 <button class="submit-btn" type="submit" @click="saveTask">Salvar</button>
+                <div class="d-grid gap-2 d-flex justify-content-center">
+                    <Spinner :start="this.spin"/>
+                </div>
             </form>
         </div>
     </div>
@@ -101,12 +104,18 @@
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, email } from '@vuelidate/validators'
 import axios from "axios";
+import Spinner from "../../components/Spinner.vue"
 
 export default {
 name: "CadastroColab",
 
+components: {
+    Spinner
+},
+
 data() {
     return {
+        spin: false,
         v$: useVuelidate(),
         cep: "",
         colaborador: {
@@ -201,14 +210,18 @@ data() {
                     colaboradores[this.$route.params.index] = this.colaborador;
                     localStorage.setItem("colaboradores", JSON.stringify(colaboradores));
                     alert("Colaborador editado com sucesso!")
-                    this.$router.push( { name: "COLABORADORES" });
+                    this.spin = !this.spin
+                    setTimeout(() => { this.spin = !this.spin}, 1900)
+                    setTimeout(() => {this.$router.push( { name: "COLABORADORES" })}, 2000);
                     return;
                 }
                 let colaboradores = (localStorage.getItem("colaboradores")) ? JSON.parse(localStorage.getItem("colaboradores")) : [];
                 colaboradores.push(this.colaborador);
                 localStorage.setItem("colaboradores", JSON.stringify(colaboradores));
                 alert("Colaborador criado com sucesso!")
-                this.$router.push( { name: "COLABORADORES" });
+                this.spin = !this.spin
+                setTimeout(() => { this.spin = !this.spin}, 1900)
+                setTimeout(() => {this.$router.push( { name: "COLABORADORES" })}, 2000);
             }
             else {
                 (() => {

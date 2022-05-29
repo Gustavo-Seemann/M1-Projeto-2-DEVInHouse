@@ -19,6 +19,7 @@
         <div class="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
             <div class="offcanvas-header">
                 <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Menu</h6>
+                <Spinner :start="this.spin"/>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body px-0">
@@ -64,11 +65,19 @@
 </template>
 
 <script>
+import Spinner from './Spinner.vue'
+
 export default {
     name: "NavSideBar",
+
+    components:{
+        Spinner
+    },
+
     data() {
         return {
-            usuarioLogado: (localStorage.getItem("usuario")) ? JSON.parse(localStorage.getItem("usuario")) : { nameRegister: "Usuario" }
+            usuarioLogado: (localStorage.getItem("usuario")) ? JSON.parse(localStorage.getItem("usuario")) : { nameRegister: "Usuario" },
+            spin: false
         }
     },
     methods: {
@@ -77,19 +86,29 @@ export default {
             this.$router.push({name: "login" });
         },
         irHome() {
-            this.$router.push({name: "INVENTARIO" })
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
+            setTimeout(() => { this.$router.push({name: "INVENTARIO" })}, 2000)
         },
         irCadastroColab() {
-            this.$router.push({name: "CADASTRO DE COLABORADORES" })
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
+            setTimeout(() => {this.$router.push({name: "CADASTRO DE COLABORADORES" })}, 2000)
         },
         irCadastroItem() {
-            this.$router.push({name: "CADASTRO DE ITENS" })
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
+            setTimeout(() => {this.$router.push({name: "CADASTRO DE ITENS" })}, 2000)
         },
         irEmprestimoItem () {
-            this.$router.push({name: "EMPRESTIMO DE ITENS"})
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
+            setTimeout(() => {this.$router.push({name: "EMPRESTIMO DE ITENS"})}, 2000)
         },
         irColaboradores () {
-            this.$router.push({name: "COLABORADORES"})
+            this.spin = !this.spin
+            setTimeout(() => { this.spin = !this.spin}, 1900)
+            setTimeout(() => {this.$router.push({name: "COLABORADORES"})}, 2000)
         },
     },
         computed: {
