@@ -3,7 +3,7 @@
 <h1 align="left">Olá! Eu sou o Luiz Gustavo</h1>
 <h3 align="left">Sou estudante de programação do Curso DEVinHouse</h3>
 
-- 📝 Esse repositório foi para criado para o meu segundo projeto do Módulo 1 da formação de Dev. Full Stack do DEVinHouse.
+- 📝 Esse repositório foi para criado para o meu segundo projeto do Módulo 1 da formação de Dev. Full Stack do DEVinHouse. Atualmente comecei a codar fazem 3 meses.
 
 - 🌱 No momento estamos aprendendo VueJS e é o foco principal do projeto, trabalharemos conhecimentos de JavaScript, HTML, CSS e do próprio VueJS (versão 3).
 
@@ -15,7 +15,7 @@
 
 <hr>
 <br>
-<p align="center">👨‍💻 Meu primeiro projeto do modulo de Front-end está disponível em meu repositório do github [PROJETO 1](https://github.com/Gustavo-Seemann/M1-Projeto-1)
+<p align="center">👨‍💻 Meu primeiro projeto do modulo de Front-end está disponível em meu repositório do github [PROJETO 1](https://github.com/Gustavo-Seemann/M1-Projeto-1-DEVinHouse)
 <br>
 
 
