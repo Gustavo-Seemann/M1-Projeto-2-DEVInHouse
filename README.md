@@ -1,5 +1,3 @@
-# M1-Projeto-2
-
 <h1 align="left">LABInventory</h1>
 <h3 align="left">Olá! Eu sou o Luiz Gustavo. Sou estudante de programação do Curso DEVinHouse</h3>
 
